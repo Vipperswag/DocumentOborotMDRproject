@@ -1,0 +1,16 @@
+§
+    ü›g›  ã                   óh   — d Z ddlZddlmZ ej                             dd¦  «          e¦   «         ZdS )zá
+WSGI config for DocumentOborotMDR project.
+
+It exposes the WSGI callable as a module-level variable named ``application``.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/5.1/howto/deployment/wsgi/
+é    N)Úget_wsgi_applicationÚDJANGO_SETTINGS_MODULEzDocumentOborotMDR.settings) Ú __doc__ÚosÚdjango.core.wsgir   Ú environÚ
+setdefaultÚ
+application© ó    õo   /home/kabinet303/Ğ Ğ°Ğ±Ğ¾Ñ‡Ğ¸Ğ¹ ÑÑ‚Ğ¾Ğ»/Ğ˜Ğ¡Ğ’-23/ĞœĞ¸Ñ€Ğ¾Ğ½Ğ.Ğ¡./DocumentOborotMDR/DocumentOborotMDR/wsgi.pyú<module>r      sX   ğğ ğ  ğ 
+€	€	€	à 1Ğ 1Ğ 1Ğ 1Ğ 1Ğ 1à „
+× Ò Ğ.Ğ0LÑ MÔ MĞ Mà"Ğ"Ñ$Ô$€
+€
+€
+r   

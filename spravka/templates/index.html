@@ -5,8 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Люберецкий Техникум</title>
+  <meta name="description" content="Современное образовательное учреждение в Люберцах">
   <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
+  <link rel="icon" href="{% static 'favicon.ico' %}">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=yosKNM8bXSDHJDfjHVfnlYVaYyFX0ogxlzCj3ASziZmotMms3xMBRcsVNYQDFBBUO6ABUda78ptCbB4If78Tkg5U3eNxyPCzHbqo05FjqOq5gMZ0-sB-3pCde3TBLKw2MNo3EuENG-X8ENB1IsPLAnMFKP86hAK201WBNXQfgJ6WV7ELSk6bVVbHYnAlwh-p" charset="UTF-8"></script></head>
 <body>
 
   <header>
@@ -16,6 +18,7 @@
         <ul>
           <li><a href="{% url 'glavnaya' %}">Главная</a></li>
           <li><a href="{% url 'signupuser' %}">Регистрация</a></li>
+          <li><a href="{% url 'document_processing' %}">Документооборот</a></li>
         </ul>
       </nav>
     </div>
@@ -24,48 +27,44 @@
   <main>
     <section class="hero">
       <div class="container">
-        <h2>Добро пожаловать!</h2>
-        <p>Люберецкий Техникум - современное образовательное учреждение, готовящее квалифицированных специалистов для различных отраслей промышленности и сферы услуг.</p>
-        <a href="#order-form" class="button">Заказать справку</a>
+        <h2>Профессиональное образование для успешного будущего</h2>
+        <p>Мы готовим специалистов, востребованных на современном рынке труда. Практико-ориентированное обучение, современные лаборатории и сильный преподавательский состав.</p>
+        <a href="{% url 'document_processing' %}" class="button">Документооборот</a>
       </div>
     </section>
 
     <section class="about">
       <div class="container">
-        <h2>О техникуме</h2>
-        <p>Краткая информация о техникуме: год основания, миссия, достижения, преподавательский состав и т.д.  Можно добавить фотографии.</p>
-        <img src="" alt="Люберецкий Техникум" width="500">
-      </div>
+        <h2>О нашем техникуме</h2>
+        <div class="about-content">
+          <p>Люберецкий Техникум основан в 1995 году и за это время выпустил более 5000 квалифицированных специалистов. Мы предлагаем программы среднего профессионального образования по 15 направлениям.</p>
+          <p>Наши преимущества:</p>
+          <ul>
+            <li>Современное оборудование и лаборатории</li>
+            <li>Опытные преподаватели-практики</li>
+            <li>Программы дуального образования</li>
+            <li>Партнерские отношения с ведущими предприятиями региона</li>
+          </ul>
     </section>
 
-    <section id="order-form" class="order-form">
+    <section class="document-info">
       <div class="container">
-        <h2>Заказ справки об обучении</h2>
-        <form action="process_form.php" method="POST">  <!-- Замените "process_form.php" на URL вашего скрипта обработки формы -->
-          <div class="form-group">
-            <label for="full_name">ФИО:</label>
-            <input type="text" id="full_name" name="full_name" required>
-          </div>
-
-          <div class="form-group">
-            <label for="group_number">Номер группы:</label>
-            <input type="text" id="group_number" name="group_number" required>
-          </div>
-
-          <div class="form-group">
-            <label for="reason">Причина запроса:</label>
-            <textarea id="reason" name="reason" rows="4" required></textarea>
-          </div>
-
-          <button type="submit">Отправить запрос</button>
-        </form>
+        <h2>Электронный документооборот</h2>
+        <p>Наша система позволяет быстро и удобно получать необходимые документы:</p>
+        <ol>
+          <li>Скачайте шаблон Excel</li>
+          <li>Заполните свои данные</li>
+          <li>Загрузите файл в систему</li>
+          <li>Получите готовый документ в формате Word</li>
+        </ol>
+        <a href="{% url 'document_processing' %}" class="button">Перейти к документообороту</a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2024 Люберецкий Техникум. Все права защищены.</p>
+      <p>&copy; 2025 Люберецкий Техникум. Все права защищены.</p>
     </div>
   </footer>
 

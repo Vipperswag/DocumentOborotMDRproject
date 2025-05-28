@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Люберецкий Техникум{% endblock %}</title>
+    <meta name="description" content="{% block description %}Современное образовательное учреждение в Люберцах{% endblock %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Люберецкий Техникум</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'glavnaya' %}" {% if request.path == '/' %}class="active"{% endif %}>Главная</a></li>
+                    <li><a href="{% url 'signupuser' %}" {% if 'register' in request.path %}class="active"{% endif %}>Регистрация</a></li>
+                    <li><a href="{% url 'document_processing' %}" {% if 'document' in request.path %}class="active"{% endif %}>Документооборот</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Люберецкий Техникум. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

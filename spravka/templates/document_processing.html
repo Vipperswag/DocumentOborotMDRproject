@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="document-processing">
+    <div class="container">
+        <h2>Генератор справок для студентов</h2>
+        
+        <div class="steps">
+            <div class="step">
+                <h3>Шаг 1: Скачайте шаблон</h3>
+                <a href="{% url 'download_template' %}" class="button">Скачать шаблон Excel</a>
+                <p>Заполните все поля в скачанном файле</p>
+            </div>
+            
+            <div class="step">
+                <h3>Шаг 2: Загрузите заполненный файл</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form.excel_file.label_tag }}
+                        {{ form.excel_file }}
+                        {% if form.excel_file.errors %}
+                            <div class="error">{{ form.excel_file.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <button type="submit" class="button">Сгенерировать справку</button>
+                </form>
+                {% if error %}
+                    <div class="alert alert-danger mt-3">{{ error }}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,178 +1,274 @@
-/* Общие стили */
+/* Общие стили - новый дизайн */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --light-color: #ecf0f1;
+  --dark-color: #2c3e50;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-  }
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  line-height: 1.6;
+}
 
+.container {
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--secondary-color);
+}
+
+/* Хедер - новый дизайн */
+header {
+  background-color: var(--primary-color);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  color: white;
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+
+/* Герой-секция - новый дизайн */
+.hero {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h2 {
+  color: white;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.hero h2::after {
+  background: white;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+.button {
+  display: inline-block;
+  background-color: white;
+  color: var(--primary-color);
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+/* Секция "О техникуме" - новый дизайн */
+.about {
+  padding: 80px 0;
+  background-color: white;
+}
+
+.about .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about img {
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  height: auto;
+  margin-top: 30px;
+}
+
+/* Форма - новый дизайн */
+.order-form, .register {
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  margin: 50px auto;
+  max-width: 800px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group input[type="password"],
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.order-form button[type="submit"],
+.register button[type="submit"] {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.order-form button[type="submit"]:hover,
+.register button[type="submit"]:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* Сообщения об ошибках */
+.error {
+  color: var(--accent-color);
+  background-color: rgba(231, 76, 60, 0.1);
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--accent-color);
+}
+
+/* Футер - новый дизайн */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 50px;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
   .container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-  }
-
-  h1, h2 {
-    text-align: center;
-    color: #007bff; /* Синий цвет, можно изменить */
-  }
-
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  /* Стили для хедера */
-  header {
-    background-color: #fff;
-    padding: 20px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 90%;
   }
 
   header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 15px;
   }
 
   nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
-  nav li {
-    margin-left: 20px;
-  }
-
-  /* Стили для секции "hero" */
   .hero {
-    background-color: #e9ecef;
-    padding: 50px 0;
-    text-align: center;
+    padding: 60px 0;
   }
 
   .hero h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 2rem;
   }
 
-  .hero p {
-    font-size: 1.2em;
-    line-height: 1.6;
+  .order-form, .register {
+    padding: 25px;
   }
-
-  .button {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-top: 30px;
-  }
-
-  .button:hover {
-    background-color: #0056b3;
-    text-decoration: none;
-  }
-
-  /* Стили для секции "О техникуме" */
-  .about {
-    padding: 50px 0;
-  }
-
-  .about img {
-    display: block;
-    margin: 20px auto;
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* Стили для формы заказа */
-  .order-form {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-  }
-
-  .form-group {
-    margin-bottom: 20px;
-  }
-
-  .form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-
-  .form-group input[type="text"],
-  .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; /* Очень важно, чтобы padding не увеличивал ширину */
-    font-size: 1em;
-  }
-
-  .form-group textarea {
-    resize: vertical; /* Разрешить изменение высоты текстового поля */
-  }
-
-  .order-form button[type="submit"] {
-    background-color: #28a745; /* Зеленый цвет, можно изменить */
-    color: #fff;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
-  }
-
-  .order-form button[type="submit"]:hover {
-    background-color: #218838;
-  }
-
-
-  /* Стили для футера */
-  footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-  }
-
-  /* Медиа-запросы для адаптивности */
-  @media (max-width: 768px) {
-    .container {
-      width: 95%;
-    }
-
-    header .container {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    nav ul {
-      margin-top: 10px;
-      flex-direction: column;
-      text-align: center;
-    }
-
-    nav li {
-      margin: 5px 0;
-    }
-
-    .hero h2 {
-      font-size: 2em;
-    }
-  }
+}

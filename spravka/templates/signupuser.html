@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация</title>
+    <title>Регистрация в системе</title>
+    <meta name="description" content="Регистрация в системе Люберецкого Техникума">
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Регистрация</h1>
+            <h1>Люберецкий Техникум</h1>
             <nav>
                 <ul>
                     <li><a href="{% url 'glavnaya' %}">Главная</a></li>
-                    <li><a href="{% url 'signupuser' %}">Регистрация</a></li>
+                    <li><a href="{% url 'signupuser' %}" class="active">Регистрация</a></li>
                 </ul>
             </nav>
         </div>
@@ -23,22 +25,42 @@
     <main>
         <section class="register">
             <div class="container">
-                <h2>Создать аккаунт</h2>
+                <h2>Создание учетной записи</h2>
+                <p>Зарегистрируйтесь для доступа к личному кабинету студента</p>
+
                 {% if error %}
-                    <p class="error">{{ error }}</p>
+                    <div class="error">{{ error }}</div>
                 {% endif %}
+
                 <form method="POST">
                     {% csrf_token %}
-                    {{ form.as_p }}
+
+                    <div class="form-group">
+                        <label for="id_username">Логин:</label>
+                        <input type="text" name="username" id="id_username" required placeholder="Придумайте логин">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_password1">Пароль:</label>
+                        <input type="password" name="password1" id="id_password1" required placeholder="Не менее 8 символов">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_password2">Подтверждение пароля:</label>
+                        <input type="password" name="password2" id="id_password2" required placeholder="Повторите пароль">
+                    </div>
+
                     <button type="submit">Зарегистрироваться</button>
                 </form>
+
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Люберецкий Техникум. Все права защищены.</p>
+            <p>&copy; 2025 Люберецкий Техникум. Все права защищены.</p>
+            <p>Техническая поддержка: support@lyubertsy-tech.ru</p>
         </div>
     </footer>
 </body>

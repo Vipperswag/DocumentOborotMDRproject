@@ -1,5 +1,5 @@
 """
-URL configuration for DocumentOborotMAS project.
+URL configuration for DocumentOborotMDR project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -20,4 +20,6 @@ from . import views
 urlpatterns = [
     path('', views.glavnaya, name='glavnaya'),
     path('register/', views.signupuser, name='signupuser'),
+    path('document/', views.document_processing, name='document_processing'),
+    path('document/download-template/', views.download_excel_template, name='download_template'),
 ]
